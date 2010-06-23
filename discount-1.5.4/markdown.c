@@ -793,7 +793,7 @@ tgood(char c)
 static Line*
 addfootnote(Line *p, MMIOT* f)
 {
-    int j, i;
+    int j;
     int c;
     Line *np = p->next;
 
@@ -804,7 +804,7 @@ addfootnote(Line *p, MMIOT* f)
     CREATE(foot->title);
     foot->height = foot->width = 0;
 
-    for (j=i=p->dle+1; T(p->text)[j] != ']'; j++)
+    for (j=p->dle+1; T(p->text)[j] != ']'; j++)
 	EXPAND(foot->tag) = T(p->text)[j];
 
     EXPAND(foot->tag) = 0;
