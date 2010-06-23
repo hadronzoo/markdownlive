@@ -1268,7 +1268,7 @@ printheader(Paragraph *pp, MMIOT *f)
     Qprintf(f, "<h%d", pp->hnumber);
     if ( f->flags & TOC ) {
 	Qprintf(f, " id=\"", pp->hnumber);
-	mkd_string_to_anchor(T(pp->text->text), S(pp->text->text), Qchar, f);
+	mkd_string_to_anchor(T(pp->text->text), S(pp->text->text), (void (*)(int,void*))Qchar, f);
 	Qchar('"', f);
     }
     Qchar('>', f);

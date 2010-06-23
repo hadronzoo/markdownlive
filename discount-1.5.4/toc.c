@@ -50,7 +50,7 @@ mkd_toc(Document *p, char **doc)
 			++last_hnumber;
 		    }
 		    Csprintf(&res, "%*s<li><a href=\"#", srcp->hnumber, "");
-		    mkd_string_to_anchor(T(srcp->text->text), S(srcp->text->text), Csputc, &res);
+		    mkd_string_to_anchor(T(srcp->text->text), S(srcp->text->text), (void (*)(int,void*))Csputc, &res);
 		    Csprintf(&res, "\">");
 		    Csreparse(&res, T(srcp->text->text), S(srcp->text->text), 0);
 		    Csprintf(&res, "</a>");
